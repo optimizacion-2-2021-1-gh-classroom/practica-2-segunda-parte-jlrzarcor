@@ -74,9 +74,9 @@ Coloquen su botón de *binder* en su `README.md`.
 
 # Notas
 
-* El código de su paquete lo hicieron en el repo de la parte 2 para la práctica 1. Pueden realizar los cambios en ese repo para no tener su paquete repartido en diferentes repositorios. Uds deciden si quieren tomar esta opción o bien copiar y pegar lo necesario en los repos de esta parte 2.
+* El código de su paquete lo hicieron en el repo de la parte 2 para la práctica 1. Pueden realizar los cambios en ese repo para no tener su paquete repartido en diferentes repositorios. Uds deciden si quieren tomar esta opción o bien copiar y pegar lo necesario en los repos de la práctica 2.
 
-* Los cambios que realizan al código deben de automáticamente reflejarse en la documentación de su paquete (incluyendo los archivos `.rst` correspondientes o modificándolos de acuerdo a la reimplementación / adición / eliminación de las secciones de su código), pasar *tests*, construcción de sus imágenes de docker de forma automática con *github actions* sin ningún problema.
+* Los cambios que realizan al código deben de automáticamente reflejarse en la documentación de su paquete (los archivos `.rst` habrá que modificarlos de acuerdo a la reimplementación / adición / eliminación de las secciones de su código), pasar *tests*, construcción de sus imágenes de docker de forma automática con *github actions* sin ningún problema.
 
 * Añadan referencias utilizadas para la reimplementación / adición / eliminación de las secciones de su código. Por ejemplo si están basándose en *papers* o páginas para realizar compilación a C o cómputo en paralelo inclúyanlas en su `README.md` o directamente el *paper*.
 
