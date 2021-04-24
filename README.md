@@ -1,4 +1,4 @@
-**Parte 2 de la práctica 2 del curso de Optimización 2 2021-1: reimplementación de secciones de código del paquete construído y preparación para la entrega de su práctica / proyecto final**
+**Parte 2 de la práctica 2 del curso de Optimización 2 2021-1: reimplementación de secciones de código del paquete construído para uso de niveles de BLAS, compilación a C, cómputo en paralelo, concurrente o distribuido. Preparación para la entrega de su práctica / proyecto final**
 
 Antes de iniciar a trabajar: 
 
@@ -63,7 +63,7 @@ Una vez realizado el perfilamiento deben evaluar qué utilizarán para hacer má
 
 * Cómputo concurrente (no lo revisamos en clase pero en la nota 5.1 se dieron referencias de paquetes para realizarlo y lo pueden usar).
 
-* Cómputo distribuido. Por ejemplo, si deben procesar x cantidad de archivos una buena propuesta es procesarlos repartiéndolos en un clúster de máquinas. En este caso una tarea adicional que se debe asignar a una persona es el *setup* del clúster.
+* Cómputo distribuido. Por ejemplo, si deben procesar x cantidad de archivos una buena propuesta es procesarlos repartiéndolos en un clúster de máquinas. En este caso una tarea adicional que se debe asignar a una persona es el *setup* del clúster. Una referencia para crear un clúster con [dask](https://github.com/dask/dask) es a partir del minuto 15 del [video1](https://www.youtube.com/watch?v=VdLcaz1rIos) y [video2](https://www.youtube.com/watch?v=KGusfdWzP5Q)
 
 Al menos una de las opciones anteriores **deben usar**.
 
