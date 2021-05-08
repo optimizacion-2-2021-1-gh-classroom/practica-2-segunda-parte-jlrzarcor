@@ -10,7 +10,7 @@ def cgm(A,b,x,tolerance=1e-7, iter=1000):
             b: solution vector
             x: vector to be optimize
         output:
-            x: optimiza vector
+            x: vector optimized
     """
     r = np.dot(A,x)-b
     p = -r
