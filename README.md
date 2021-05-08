@@ -46,7 +46,7 @@ ______
 
 Puedes visitar nuestro sitio para conocer la documentación del paquete en línea:
 
-[paquete_experimental_hill_climbing_conjugate_gradient](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-2-primera-parte-jlrzarcor/)
+[paquete_experimental_hill_climbing_conjugate_gradient](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-2-segunda-parte-jlrzarcor/)
 
 ______
 **Referencias:**
