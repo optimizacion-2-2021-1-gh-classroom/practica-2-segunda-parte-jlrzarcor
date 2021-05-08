@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS="sudo nano less git wget curl python3-dev python3-pip python3-setuptools"
 ENV DEB_PACKAGES=""
 ENV PIP_PACKAGES_COMMON="scipy sklearn"
-ENV PIP_PACKAGES_KALE="kubeflow-kale==0.6.1"
+#ENV PIP_PACKAGES_KALE="kubeflow-kale==0.6.1"
 
 RUN apt-get update && export $DEBIAN_FRONTEND && \
     echo $TIMEZONE > /etc/timezone && apt-get install -y tzdata
@@ -26,8 +26,8 @@ RUN jupyter notebook --generate-config && \
         
 
 RUN pip install $PIP_PACKAGES_COMMON --upgrade
-RUN pip install $PIP_PACKAGES_KALE --upgrade
-RUN jupyter labextension install kubeflow-kale-labextension
+#RUN pip install $PIP_PACKAGES_KALE --upgrade
+#RUN jupyter labextension install kubeflow-kale-labextension
 
 RUN pip install --quiet "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-2-segunda-parte-jlrzarcor.git#egg=Opt_HC_CG&subdirectory=src"
 
