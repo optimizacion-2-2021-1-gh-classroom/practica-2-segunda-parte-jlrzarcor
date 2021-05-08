@@ -10,10 +10,10 @@ def distance_matrix(coordinate):
     """
     calculate the distance among each suggest solution point
 
-    input:
-        coordinate[array]: array containig the points to be visited
-    outputs:
-        matrix[array]: nxn array with distances among solution points
+        input:
+            coordinate[array]: array containig the points to be visited
+        outputs:
+            matrix[array]: nxn array with distances among solution points
     """
     matrix = []
     for i in range(len(coordinate)):
@@ -28,6 +28,7 @@ def distance_matrix(coordinate):
 def random_solution(matrix, initial_point):
     """
     create a random solution with the places to be visited
+
         input:
             matrix[array]: distance between points
             initial_point[integer]: number of the place to be visited first
@@ -49,11 +50,12 @@ def random_solution(matrix, initial_point):
 def calculate_distance(matrix, solution):
     """
     returns the distance associated with a solution
+
         input:
             matrix[array]: distance between points
             solution[list]: contains a propose random solution 
         output:
-        distance[float]: distance cover a propose solution            
+            distance[float]: distance cover a propose solution            
     """
     distance = 0
     for i in range(0, len(solution)):
@@ -64,6 +66,7 @@ def calculate_distance(matrix, solution):
 def neighbors(matrix, solution):
     """
     create neighbors of a propose solution
+
         input: 
             matrix[array]: distance between points
             solution[list]: contains a propose random solution
@@ -94,7 +97,7 @@ def best_solution(coordinate, initial_point = 0, tolerance = 1e-7):
     """
     finds an optimal solution for the TSP problem using hill climbing algorithm
         input:
-            points: coordinates of the places to be visited 
+            points[array]: coordinates of the places to be visited 
             initial_point[integer]: number of the place to be visited first
             tolerance[float]: value that indicates the solution is not improving
         outputs:

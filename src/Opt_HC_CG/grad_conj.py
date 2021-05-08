@@ -3,9 +3,9 @@ import numpy as np
 
 def cgm(A,b,x,tolerance=1e-7, iter=1000):
     """
-    input:
-        given a system of linear equation returns the 
-        coeficient matrix optimize 
+    given a system of linear equation returns the coefficient matrix optimized      
+        
+        input:
             A: Coeficient matrix
             b: solution vector
             x: vector to be optimize
@@ -39,10 +39,11 @@ def cgm(A,b,x,tolerance=1e-7, iter=1000):
 def its_simetric(matrix):
     """
     ckecks if a matrix is symmetric
-    inputs:
-        matrix: a cuadratic matix
-    outputs:
-        True ir our matrix is simetric, false otherwise
+
+        inputs:
+            matrix[array]: a cuadratic matix
+        outputs:
+            True if our matrix is simetric, False otherwise
     """
     matrix_t = np.transpose(matrix)
     return matrix.all() == matrix_t.all()
@@ -51,10 +52,11 @@ def its_simetric(matrix):
 def symmetrize_posdef(n):
     """
     creates positive define nxn arrays
+
     input:
-        n: size of the symmetric matrix required
+        n[integer]: size of the symmetric matrix required
     optput:
-        symetric define positive matix
+        a[array]:symetric define positive matix
     """
     while True:
 
@@ -69,10 +71,11 @@ def symmetrize_posdef(n):
 def is_pos_def(x):
     """
     ckecks if a matrix is define positive
-    input:
-        param x: matrix to check if it  is define positive
-        return: True if the matix is define positive and False otherwise
-    output:
-        
+
+        input:
+            x[array]: matrix to check if it  is define positive
+        output:
+            True if the matix is define positive and False otherwise
+            
     """
     return np.all(np.linalg.eigvals(x) > 0)
