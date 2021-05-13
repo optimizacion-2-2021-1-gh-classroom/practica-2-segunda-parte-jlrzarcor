@@ -39,6 +39,7 @@ def random_solution(matrix, initial_point):
         random_point = points[random.randint(0, len(points) - 1)]
         solution.append(random_point)
         points.remove(random_point)
+    solution.append(solution[0])
 
     return solution
 
@@ -72,8 +73,8 @@ def neighbors(matrix, solution):
             best_path[float]: distance cover by the best_neighbor route
     """
     neighbors = []
-    for i in range(len(solution)):
-        for j in range(i + 1, len(solution)):
+    for i in range(1, len(solution)-1):
+        for j in range(i + 2, len(solution)-1):
             neighbor = solution.copy()
             neighbor[i] = solution[j]
             neighbor[j] = solution[i]
