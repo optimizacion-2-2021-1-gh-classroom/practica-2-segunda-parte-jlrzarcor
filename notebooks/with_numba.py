@@ -114,17 +114,6 @@ def best_solution(coordinate, initial_point=0, tolerance=1e-7):
     return global_path, global_solution, time.time() - start_time
 
 
-sources = np.array([
-    [40.73024833, -73.79440675],
-    [41.47362495, -73.92783272],
-    [41.26591   , -73.21026228],
-    [41.3249908 , -73.507788  ],
-    [42.26591   , -74.21026228],
-    [42.76599   , -74.81926228]
-])
-
-
-
 
 
 @cli.command()
