@@ -1,4 +1,3 @@
-from hill_final import *
 import time
 import numpy as np
 import numba
