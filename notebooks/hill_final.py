@@ -3,8 +3,6 @@ import random
 import numpy as np
 
 
-
-
 def distance_matrix(coordinate):
     """
     calculate the distance among each suggest solution point
@@ -85,3 +83,45 @@ def neighbors(matrix, solution):
             best_path = current_path
             best_neighbor = neighbor
     return best_neighbor, best_path
+
+def best_solution(coordinate, initial_point = 0, tolerance = 1e-7, n_restarts = 100):
+    """
+    finds an optimal solution for the TSP problem using hill climbing algorithm
+        input:
+            points[array]: coordinates of the places to be visited 
+            initial_point[integer]: number of the place to be visited first
+            tolerance[float]: value that indicates the solution is not improving
+        outputs:
+            bst_distance[float]: distance of the best route 
+            best_sol[list]: order the places to be visted in the optimal solution
+            time[float]: time that take the algorithm to obtain the solution    
+    """
+    start_time = time.time()
+    matrix = distance_matrix(coordinate)
+    
+    current_solution = random_solution(matrix, initial_point)
+    current_path = calculate_distance(matrix, current_solution)
+    neighbor = neighbors(matrix,current_solution)[0]
+    best_neighbor, best_neighbor_path = neighbors(matrix, neighbor)
+    global_path = 2 * current_path
+    
+    for _ in range(n_restarts):
+        while best_neighbor_path < current_path:
+            while abs(best_neighbor_path - current_path) > tolerance:
+                current_solution = best_neighbor
+                current_path = best_neighbor_path
+                neighbor = neighbors(matrix, current_solution)[0]
+                best_neighbor, best_neighbor_path = neighbors(matrix, neighbor)
+                
+        if current_path < global_path:
+            global_path = current_path
+            global_solution = current_solution
+
+        current_solution = random_solution(matrix, initial_point)
+        current_path = calculate_distance(matrix, current_solution)
+        neighbor = neighbors(matrix,current_solution)[0]
+        best_neighbor, best_neighbor_path = neighbors(matrix, neighbor)
+        
+    return global_path, global_solution, time.time() - start_time
+
+
