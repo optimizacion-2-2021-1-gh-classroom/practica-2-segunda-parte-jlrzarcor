@@ -1,0 +1,6 @@
+﻿hill\_cg.grad\_conj.is\_pos\_def
+================================
+
+.. currentmodule:: hill_cg.grad_conj
+
+.. autofunction:: is_pos_def

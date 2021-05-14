@@ -1,0 +1,6 @@
+﻿hill\_cg.grad\_conj.its\_simetric
+=================================
+
+.. currentmodule:: hill_cg.grad_conj
+
+.. autofunction:: its_simetric

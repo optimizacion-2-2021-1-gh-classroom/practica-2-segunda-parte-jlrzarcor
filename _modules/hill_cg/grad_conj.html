@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hill_cg.grad_conj &#8212; &#34;hill_cg&#34; 0.3 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">&#34;hill_cg&#34; 0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hill_cg.grad_conj</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for hill_cg.grad_conj</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="cgm"><a class="viewcode-back" href="../../_autosummary/hill_cg.grad_conj.cgm.html#hill_cg.grad_conj.cgm">[docs]</a><span class="k">def</span> <span class="nf">cgm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span> <span class="nb">iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    given a system of linear equation returns the coefficient matrix optimized      </span>
+<span class="sd">        </span>
+<span class="sd">        input:</span>
+<span class="sd">            A: Coeficient matrix</span>
+<span class="sd">            b: solution vector</span>
+<span class="sd">            x: vector to be optimize</span>
+<span class="sd">        output:</span>
+<span class="sd">            x: vector optimized</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">b</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+        <span class="n">r_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="n">r</span><span class="p">)</span>
+        <span class="n">alpha_k</span> <span class="o">=</span> <span class="n">r_s</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">p</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
+        
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">alpha_k</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+        
+        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">alpha_k</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
+        
+        <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">r_s</span>
+        
+        <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">p</span>
+        
+        <span class="n">k</span> <span class="o">=+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="nb">iter</span><span class="p">:</span>
+            <span class="k">break</span>    
+    <span class="k">return</span> <span class="n">x</span></div>
+
+
+<div class="viewcode-block" id="its_simetric"><a class="viewcode-back" href="../../_autosummary/hill_cg.grad_conj.its_simetric.html#hill_cg.grad_conj.its_simetric">[docs]</a><span class="k">def</span> <span class="nf">its_simetric</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ckecks if a matrix is symmetric</span>
+
+<span class="sd">        inputs:</span>
+<span class="sd">            matrix[array]: a cuadratic matix</span>
+<span class="sd">        outputs:</span>
+<span class="sd">            True if our matrix is simetric, False otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">matrix_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">matrix</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="o">==</span> <span class="n">matrix_t</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">symmetrize_posdef</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    creates positive define nxn arrays</span>
+
+<span class="sd">    input:</span>
+<span class="sd">        n[integer]: size of the symmetric matrix required</span>
+<span class="sd">    optput:</span>
+<span class="sd">        a[array]:symetric define positive matix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+        <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+            
+    <span class="k">return</span> <span class="n">a</span>
+
+<div class="viewcode-block" id="is_pos_def"><a class="viewcode-back" href="../../_autosummary/hill_cg.grad_conj.is_pos_def.html#hill_cg.grad_conj.is_pos_def">[docs]</a><span class="k">def</span> <span class="nf">is_pos_def</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ckecks if a matrix is define positive</span>
+
+<span class="sd">        input:</span>
+<span class="sd">            x[array]: matrix to check if it  is define positive</span>
+<span class="sd">        output:</span>
+<span class="sd">            True if the matix is define positive and False otherwise</span>
+<span class="sd">            </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">&#34;hill_cg&#34; 0.3 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">hill_cg.grad_conj</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, &#34;itam-Optimización Avanzada. Prof. Erick Palacios Moreno&#34;.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+    </div>
+  </body>
+</html>
