@@ -22,4 +22,4 @@ test = 1 - hc_best_dist/tsp_sol
 
 # Validar test
 def test_distance():
-    assert np.linalg.norm(test - 0.1) < 1e-1
+    assert test < 1e-1
