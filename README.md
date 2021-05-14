@@ -33,14 +33,14 @@ _______
 
 **Fecha de Entrega:** Domingo 09 de Mayo del 2021, 23:59 hrs. 
 
-
-Tentativente se está evaluando la posibildiad de cambiar a un método numérico más ad-hoc a la implementación de Cómputo en Paralelo.
-
 ______
 
 Para una experiencia interactiva con el código de nuestro repositorio, puedes utilizar el botón [binder](https://mybinder.org/):
 
-[![Binder](https://mybinder.org/badge_logo.svg)]()
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-2-segunda-parte-jlrzarcor/main?urlpath=lab)
+
+Es necesario instalar nuestro paquete **hill_cg** en este ambiente para poder ejecutar nuestro reporte.
 
 ______
 
