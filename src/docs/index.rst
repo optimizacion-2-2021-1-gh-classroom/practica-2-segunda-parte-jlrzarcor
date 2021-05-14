@@ -6,7 +6,7 @@
 Welcome to "hill_cg"'s documentation!
 =======================================
 
-¡Paquete Experimental para la Clase de Optimización Avanzada!
+¡Experimental Package developed for Advance Optimization course. ITAM-DataScience!
 
  .. toctree::
    :maxdepth: 1
