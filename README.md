@@ -51,6 +51,7 @@ Puedes visitar nuestro sitio para conocer la documentación del paquete en líne
 ______
 **Referencias:**
 * [Hill climbing](https://en.wikipedia.org/wiki/Hill_climbing)
-* [Logistic regression with conjugate gradient descent for document classification](https://krex.k-state.edu/dspace/handle/2097/32658)
 * [Hill climbing towards article](https://towardsdatascience.com/how-to-implement-the-hill-climbing-algorithm-in-python-1c65c29469de)
 * [Perfilamiento, Notas del Prof. Erick](https://itam-ds.github.io/analisis-numerico-computo-cientifico/V.optimizacion_de_codigo/5.2/Herramientas_de_lenguajes_y_del_SO_para_perfilamiento_e_implementaciones_de_BLAS.html)
+* [Compilación a C, Notas del Prof. Erick](https://itam-ds.github.io/analisis-numerico-computo-cientifico/V.optimizacion_de_codigo/5.3/Compilacion_a_C.html)
+* [OR tools TSP](https://developers.google.com/optimization/routing/tsp)
