@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to "hill_cg"'s documentation!
-=======================================
+=====================================
 
 ¡Experimental Package developed for Advance Optimization course. ITAM-DataScience!
 
