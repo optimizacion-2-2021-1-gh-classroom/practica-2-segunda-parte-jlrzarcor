@@ -1,4 +1,4 @@
-.. currentmodule:: Opt_HC_CG
+.. currentmodule:: hill_cg
 
 *********
 Functions
@@ -11,7 +11,7 @@ Hill Climbing and Conjugate Gradient module
    :toctree: _autosummary
 
    hill.distance_matrix
-   hill.random_salution
+   hill.random_solution
    hill.calculate_distance
    hill.neighbors
    hill.best_solution

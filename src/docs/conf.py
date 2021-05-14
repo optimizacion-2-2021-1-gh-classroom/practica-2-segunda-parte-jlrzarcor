@@ -16,13 +16,13 @@
 
 # -- Project information -----------------------------------------------------
 
-project = '"Opt_HC_CG"'
+project = '"hill_cg"'
 copyright = '2021, "itam-Optimización Avanzada. Prof. Erick Palacios Moreno"'
 author = '"equipo 05", "MLC, CR, JLRZC'
 master_doc = 'index'
 add_module_names = False
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = '0.3'
 
 
 # -- General configuration ---------------------------------------------------
